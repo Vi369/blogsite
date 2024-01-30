@@ -4,7 +4,7 @@ import {useForm} from 'react-hook-form'
 import databaseService from '../../appwrite/databaseConfig.appwrite'
 import storageServices from '../../appwrite/storage.appwrite'
 import { useNavigate } from 'react-router-dom'
-import { UseSelector, useSelector } from 'react-redux'
+import {useSelector } from 'react-redux'
 
 
 function PostFrom({post}) {

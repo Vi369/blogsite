@@ -63,13 +63,11 @@ function Login() {
                     type = "email"
                     // ... is compalsury agar ye ni kikhenge to kisi aur input from me agar register use kar rahe hai to wo bhi overwrite ho jayega 
                     // register() its a syntax aur iske andar ki value unique rakhana rahta hai 
-                    {...register("email"), {
-                        required: true,
+                    {...register("email", {required: true,
                         validate:{
-                            // match patern is owr own function
-                            matchPatern: (value) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value) || "Email must be a Valid address"
+                            matchPatern: (value) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value) || "Email must be a Valid address",
                         }
-                    }} 
+                    })} 
                      />
 
                      {/* password input feild */}
@@ -85,7 +83,7 @@ function Login() {
                      })}
                       />
                       {/* button feild */}
-                      <Button children={"Sign-in"} 
+                      <Button children="Sign-in" 
                       type = "submit"
                       classname='w-full'
                       />

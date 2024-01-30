@@ -1,15 +1,16 @@
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import './App.css'
-import authService from './appwrite/auth.appwrite'
-import { login, logout } from './slices/authSlice'
-import Header from './components/header/Header'
-import Footer from './components/Footer/Footer'
+import authService from './appwrite/auth.appwrite.js'
+import { login, logout } from './store/slices/authSlice.js'
+import Header from './components/header/Header.jsx'
+import Footer from './components/Footer/Footer.jsx'
 import { Outlet } from 'react-router-dom'
+
 function App() {
   // loading state 
   const [loading, setLoading] = useState(true)
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   useEffect(()=>{
     authService.gerCurrentUser()
@@ -29,11 +30,12 @@ function App() {
       <div className=' w-full block'>
         <Header />
         <main>
-          TODO: outlet 
-          {/* <Outlet/> */}
+          <Outlet />
         </main>
-        <Footer />
-      </div>
+        </div>
+        <div className=' w-full block'>
+          <Footer />
+        </div>
     </div>
   ): (
     // TODO: loading feature add

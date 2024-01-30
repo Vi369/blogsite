@@ -11,7 +11,7 @@ import {
     Home,
     Login,
     Post,
-    SignUpPage
+    Signup
 } from './pages/index.js'
 import {
   AuthLayout
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
         path: '/signup',
         element: (
           <AuthLayout>
-            <SignUpPage authentication = {false} />
+            <Signup authentication = {false} />
           </AuthLayout>
         )
       },
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         )
       },
       {
-        path: `/edit-post/:slug`,
+        path: '/edit-post/:slug',
         element: (
           <AuthLayout authentication ={true}>
                 <EditPost />
@@ -77,6 +77,8 @@ const router = createBrowserRouter([
     ]
   }
 ])
+
+ 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>

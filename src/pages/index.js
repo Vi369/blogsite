@@ -4,7 +4,7 @@ import EditPost from './EditPost.jsx'
 import Home from './Home.jsx'
 import Login from './Login.jsx'
 import Post from './Post.jsx'
-import SignUpPage from './SignUpPage.jsx'
+import Signup from './Signup.jsx'
 
 
 export {
@@ -14,5 +14,5 @@ export {
     Home,
     Login,
     Post,
-    SignUpPage
+    Signup
 }

@@ -4,7 +4,7 @@ import databaseService from '../appwrite/databaseConfig.appwrite'
 import storageServices from '../appwrite/storage.appwrite.js'
 import { Button, Container } from '../components/index.js'
 import parse from "html-react-parser"
-import { UseSelector, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 function Post() {
@@ -26,13 +26,15 @@ function Post() {
                     navigate('/')
                 }
             });
-        }else{
-            navigate('/')
         }
+        // else{
+        //     navigate('/')
+        // }
     },[slug, navigate])
 
     // delete post 
     const deletePost = async()=>{
+        // delete something appwrite return status 
        await databaseService.deletePost(post.$id).then(async(status)=>{
             if(status){
             //    delete file
@@ -43,7 +45,7 @@ function Post() {
     }
 
     // conditional rendering return statement 
-  return post? (
+  return post ? (
     <div className='py-8'>
         <Container>
             <div className='w-full flex justify-center mb-4 relative border rounded-xl p-2'>
@@ -53,7 +55,7 @@ function Post() {
                 {/* agar author hai tab */}
                 {isAuthor && (
                     <div className='absolute right-6 top-6'>
-                        <Link>
+                        <Link to={`/edit-post/${post.$id}`}>
                             <Button bgColor='bg-green-500' classname='mr-3'>
                                 Edit
                             </Button>
@@ -69,7 +71,7 @@ function Post() {
                 <h1 className='text-2xl font-bold'> {post.title}</h1>
             </div>
             {/* TODO:  */}
-            <div className="browser-css">
+            <div className=' browser-css'>
                     {parse(post?.content)}
             </div>
         </Container>

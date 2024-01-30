@@ -1,6 +1,7 @@
 import React, {useId} from 'react'
 
-function Select({
+const Select = React.forwardRef( 
+    function Select({
     options,
     label,
     className = "",
@@ -38,7 +39,7 @@ function Select({
             </select>
     </div>
   )
-}
+} )
 
 
-export default React.forwardRef(Select)
+export default Select

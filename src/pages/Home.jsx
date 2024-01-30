@@ -6,8 +6,8 @@ import databaseService from '../appwrite/databaseConfig.appwrite.js'
 function Home() {
     const [posts, setPosts] = useState([])
 
-    useEffect(async()=>{
-        await databaseService.getAllPosts().then((posts)=>{
+    useEffect(()=>{
+        databaseService.getAllPosts().then((posts)=>{
             if(posts){
                 setPosts(posts.documents)
             }
@@ -31,7 +31,7 @@ function Home() {
 
 return (
     <div className='w-full py-8'>
-        {posts?.map((post)=>{
+        {posts.map((post)=>{
             return <div key={post.$id} className='p-2 w-1/4'>
                 <PostCard {...post} />
             </div>
